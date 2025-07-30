@@ -19,3 +19,30 @@ $students = [
   ['id' => 3, 'name' => 'Petr', 'scores' => [70, 65, 78]],
   ['id' => 4, 'name' => 'Anna', 'scores' => [90, 93, 91]],
 ];
+echo "Простой <br>";
+foreach ($students as $student) {
+    if (is_array($student['scores'])) {
+        $stringScores = implode(', ', $student['scores']);
+        echo "Имя: $student[name] Оценки: $stringScores<br>";
+    }
+}
+echo "<pre>";
+echo "<hr>";
+echo "Средний <br>";
+foreach ($students as $student) {
+    $sum = array_sum($student['scores']);
+    $avgScores = $sum / count($student['scores']);
+    $avg = round($avgScores, 2); //81.67
+    foreach ($students as &$addAvg) {
+        $addAvg['avg'] = $avg;
+    }
+    unset($addAvg);
+
+    echo 'Средний балл: - ' . $avg . '<br>';
+}
+
+//foreach ($students as &$addAvg) {
+//    $addAvg['avg'] = $avg;
+//}
+//unset($addAvg);
+var_dump($students);
