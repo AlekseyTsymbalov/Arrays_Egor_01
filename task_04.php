@@ -26,23 +26,26 @@ foreach ($students as $student) {
         echo "Имя: $student[name] Оценки: $stringScores<br>";
     }
 }
-echo "<pre>";
-echo "<hr>";
-echo "Средний <br>";
-foreach ($students as $student) {
+
+echo "<hr> Средний <br>";
+foreach ($students as &$student) {
     $sum = array_sum($student['scores']);
     $avgScores = $sum / count($student['scores']);
-    $avg = round($avgScores, 2); //81.67
-    foreach ($students as &$addAvg) {
-        $addAvg['avg'] = $avg;
-    }
-    unset($addAvg);
-
-    echo 'Средний балл: - ' . $avg . '<br>';
+    $avg = round($avgScores, 2);
+    $student['avg'] = $avg;
+    echo $student['name'] . ' средний балл: - ' . $avg . '<br>';
 }
+unset($student);
+//echo "<pre>";
+//var_dump($students);
 
-//foreach ($students as &$addAvg) {
-//    $addAvg['avg'] = $avg;
-//}
-//unset($addAvg);
-var_dump($students);
+echo "<hr>Сложный уровень:<br>";
+$bestAvg = 0;
+$bestStudent = null;
+foreach ($students as $student) {
+    if ($student['avg'] > $bestAvg) {
+        $bestAvg = $student['avg'];
+        $bestStudent = $student['name'];
+    }
+}
+echo "Лучший студент: $bestStudent (средний балл: $bestAvg)";
