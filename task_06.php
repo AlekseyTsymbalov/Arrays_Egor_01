@@ -37,3 +37,5 @@ foreach ($car as $key => $value) {
 }
 
 echo "<hr> <br>Сложный<br>";
+ksort($car, SORT_STRING);
+echo "<pre>"; print_r($car); echo "</pre>";
