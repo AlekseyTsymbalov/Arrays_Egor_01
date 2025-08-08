@@ -29,6 +29,11 @@ foreach ($car as $key => $value) {
     echo "$key <br>";
 }
 $keys = array_keys($car);
-echo "<pre>";
-print_r($keys);
-echo "</pre>";
+echo "<pre>"; print_r($keys); echo "</pre>";
+
+echo "<hr> <br>Средний<br>";
+foreach ($car as $key => $value) {
+    echo "$value ";
+}
+
+echo "<hr> <br>Сложный<br>";
