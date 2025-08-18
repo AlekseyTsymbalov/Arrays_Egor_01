@@ -18,3 +18,5 @@ $emails = [
     'test@example.com', 'john@example.com', 'admin@example.com',
     'test@example.com', 'user@example.com', 'admin@example.com'
 ];
+$uniqueEmails = array_unique($emails);
+print_r($uniqueEmails);
