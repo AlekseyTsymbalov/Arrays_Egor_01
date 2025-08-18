@@ -35,3 +35,7 @@ $prepare = implode(', ', $result2,);
 print_r($prepare);
 
 echo "<br><hr></hr>Сложный</br>";
+$emails = array_map(function ($user) {
+    return strtolower($user['first_name'][0]) . '.' . strtolower($user['last_name']) . '@example.com';
+},$users);
+print_r($emails);
