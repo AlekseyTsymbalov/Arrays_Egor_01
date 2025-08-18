@@ -21,7 +21,7 @@ $orders = [
     ['id' => 1, 'total' => 1000],
     ['id' => 2, 'total' => 350],
     ['id' => 3, 'total' => 1200],
-    ['id' => 4, 'total' => 270],
+    ['id' => 4, 'total' => 275],
     ['id' => 5, 'total' => 890],
 ];
 $result = array_filter($orders, function ($item) {
@@ -35,7 +35,7 @@ $result2 = array_filter($orders, function ($item) {
     return $item['total'] % 2 === 0;
 //    return filter_var( $item['total'], FILTER_VALIDATE_INT) && ($item['total'] & 1) === 0;
 });
-print_r($result2);
+print_r(array_values($result2));
 
 echo "<br>";
 $result3 = array_filter($orders, function ($item) {
